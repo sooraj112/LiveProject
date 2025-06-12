@@ -14,7 +14,7 @@ import utilities.FakerUtility;
 
 public class AdminUserTest extends Base {
 
-	@Test(description = "Verifying adding a new user in Admin User page")
+	@Test(description = "Verifying adding a new user in Admin User page",retryAnalyzer=retry.Retry.class)
 	public void verifyWhetherUserIsAbleToAddNewUser() throws IOException {
 		String username = ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(0, 1, "LoginPage");
