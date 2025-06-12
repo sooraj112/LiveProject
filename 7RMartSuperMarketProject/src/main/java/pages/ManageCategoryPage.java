@@ -25,6 +25,8 @@ public class ManageCategoryPage {
 	private WebElement categoryimageupload;
 	@FindBy(xpath = "//button[@name='create'and @class='btn btn-danger']")
 	private WebElement categorysavebutton;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement addcategoryalert;
+	@FindBy(xpath="//h4[text()='Search List Categories']")private WebElement searchlist;
 
 	public void clickOnManageCategoryLink() {
 		managecategorylink.click();
@@ -51,6 +53,14 @@ public class ManageCategoryPage {
 	public void clickOnSaveButtonOfManageCategory() {
 
 		categorysavebutton.click();
+	}
+	public boolean addCategoryAlertDisplayed()
+	{
+		return addcategoryalert.isDisplayed();
+}
+	public boolean serachListCategory()
+	{
+		return searchlist.isDisplayed();
 	}
 
 }

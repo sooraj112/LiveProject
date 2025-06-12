@@ -2,10 +2,11 @@ package testscript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
-
+import constants.Messages;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -18,6 +19,11 @@ public class LoginTest extends Base {
 		loginpage.enterUsernameOnUsernameField(username);
 		loginpage.enterPasswordField(password);
 		loginpage.clickOnLoginButton();
+		boolean isdashboarddisplayed=loginpage.dashboardtiledisplayed();
+		//Assert.assertTrue(isdashboarddisplayed,Messages.VALIDCREDENTIALERROR);
+		String expected="Dashboard";
+		String actual=loginpage.getDashboardText();
+		Assert.assertEquals(actual, expected,Messages.VALIDCREDENTIALERROR);
 	}
 
 	@Test(description = "Verifying user login with invalid username", priority = 2)
@@ -28,6 +34,8 @@ public class LoginTest extends Base {
 		loginpage.enterUsernameOnUsernameField(username);
 		loginpage.enterPasswordField(password);
 		loginpage.clickOnLoginButton();
+		boolean isalertdisplayed=loginpage.alertDisplayed();
+		Assert.assertTrue(isalertdisplayed,Messages.INVALIDUSERNAMEANDVAILDPASSWORDERROR);
 	}
 
 	@Test(description = "Verifying user login with invalid password", priority = 3)
@@ -38,6 +46,9 @@ public class LoginTest extends Base {
 		loginpage.enterUsernameOnUsernameField(username);
 		loginpage.enterPasswordField(password);
 		loginpage.clickOnLoginButton();
+		boolean  isalertdisplayed=loginpage.alertDisplayed();
+		//Assert.assertFalse(isdashboarddisplayed,Messages.VALIDUSERNAMEANDINVAILDPASSWORDERROR);
+		Assert.assertTrue(isalertdisplayed,Messages.VALIDUSERNAMEANDINVAILDPASSWORDERROR);
 	}
 
 	@Test(description = "Verifying user login with invalid credentials", priority = 4)
@@ -48,6 +59,8 @@ public class LoginTest extends Base {
 		loginpage.enterUsernameOnUsernameField(username);
 		loginpage.enterPasswordField(password);
 		loginpage.clickOnLoginButton();
+		boolean  isalertdisplayed=loginpage.alertDisplayed();
+		Assert.assertTrue(isalertdisplayed,Messages.INVALIDCREDENTIALERROR);
 	}
 
 }

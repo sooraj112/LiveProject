@@ -2,9 +2,11 @@ package testscript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constants.Messages;
 import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
@@ -27,6 +29,8 @@ public class ManageCategoryTest extends Base{
 		managecategory.uploadImageManageCategory();
 		managecategory.pageScrollDown();
 		managecategory.clickOnSaveButtonOfManageCategory();
+		boolean isaddcategoryalertdisplayed=managecategory.addCategoryAlertDisplayed();
+		Assert.assertTrue(isaddcategoryalertdisplayed,Messages.ADDNEWCATEGORYERROR );
 	}
 
 }
