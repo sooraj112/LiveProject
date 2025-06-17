@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.WaitUtility;
+
 public class AdminUserPage {
 	public WebDriver driver;
 
@@ -69,6 +71,8 @@ public class AdminUserPage {
 	}
 
 	public void clickOnadminusersearch() {
+		WaitUtility wait = new WaitUtility();
+		wait.waitUntilElementToBeClickable(driver, adminusersearch);
 		adminusersearch.click();
 	}
 

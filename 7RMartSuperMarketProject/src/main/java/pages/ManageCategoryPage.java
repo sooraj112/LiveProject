@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import constants.Constant;
+
 public class ManageCategoryPage {
 
 	public WebDriver driver;
@@ -41,8 +43,7 @@ public class ManageCategoryPage {
 	}
 
 	public void uploadImageManageCategory() {
-		categoryimageupload.sendKeys(
-				"C:\\Users\\asus\\git\\repository\\7RMartSuperMarketProject\\src\\test\\resources\\Untitled design.png");
+		categoryimageupload.sendKeys(Constant.IMAGEDATAFILE);
 	}
 
 	public void pageScrollDown() {

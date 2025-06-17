@@ -3,6 +3,7 @@ package testscript;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
@@ -11,7 +12,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
-	@Test(description = "", priority = 1)
+	@Test(description = "", priority = 1,groups= {"smoke"})
 	public void verifyUserLoginWithValidCredentials() throws IOException {
 		String username = ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(0, 1, "LoginPage");
@@ -51,16 +52,21 @@ public class LoginTest extends Base {
 		Assert.assertTrue(isalertdisplayed,Messages.VALIDUSERNAMEANDINVAILDPASSWORDERROR);
 	}
 
-	@Test(description = "Verifying user login with invalid credentials", priority = 4)
-	public void verifyUserLoginWithInvalidCredential() throws IOException {
-		String username = ExcelUtility.getStringData(3, 0, "LoginPage");
-		String password = ExcelUtility.getStringData(3, 1, "LoginPage");
+	@Test(description = "Verifying user login with invalid credentials", priority = 4,groups= {"smoke"},dataProvider = "logindata")
+	public void verifyUserLoginWithInvalidCredential(String username, String password) throws IOException {
+		//String username = ExcelUtility.getStringData(3, 0, "LoginPage");
+		//String password = ExcelUtility.getStringData(3, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUsernameOnUsernameField(username);
 		loginpage.enterPasswordField(password);
 		loginpage.clickOnLoginButton();
 		boolean  isalertdisplayed=loginpage.alertDisplayed();
 		Assert.assertTrue(isalertdisplayed,Messages.INVALIDCREDENTIALERROR);
+	}
+	@DataProvider(name = "logindata")
+	public Object[][] getDataFromDataProvider() throws IOException {
+		return new Object[][] { new Object[] { "test", "test1" }, new Object[] { "test1", "test2" }, new Object[] {
+				ExcelUtility.getStringData(3, 0, "LoginPage"), ExcelUtility.getStringData(3, 1, "LoginPage") } };
 	}
 
 }
