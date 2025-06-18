@@ -17,8 +17,6 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")
-	private WebElement managecategorylink;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	private WebElement managecategorynew;
 	@FindBy(xpath = "//input[@id='category']")
@@ -27,40 +25,43 @@ public class ManageCategoryPage {
 	private WebElement categoryimageupload;
 	@FindBy(xpath = "//button[@name='create'and @class='btn btn-danger']")
 	private WebElement categorysavebutton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement addcategoryalert;
-	@FindBy(xpath="//h4[text()='Search List Categories']")private WebElement searchlist;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement addcategoryalert;
+	@FindBy(xpath = "//h4[text()='Search List Categories']")
+	private WebElement searchlist;
 
-	public void clickOnManageCategoryLink() {
-		managecategorylink.click();
-	}
-
-	public void clickOnManageCategoryNew() {
+	public ManageCategoryPage clickOnManageCategoryNew() {
 		managecategorynew.click();
+		return this;
 	}
 
-	public void enterNewCategoryOnTitleField() {
+	public ManageCategoryPage enterNewCategoryOnTitleField() {
 		newcategory.sendKeys("Apple");
+		return this;
 	}
 
-	public void uploadImageManageCategory() {
+	public ManageCategoryPage uploadImageManageCategory() {
 		categoryimageupload.sendKeys(Constant.IMAGEDATAFILE);
+		return this;
 	}
 
-	public void pageScrollDown() {
+	public ManageCategoryPage pageScrollDown() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)", "");
+		return this;
 	}
 
-	public void clickOnSaveButtonOfManageCategory() {
+	public ManageCategoryPage clickOnSaveButtonOfManageCategory() {
 
 		categorysavebutton.click();
+		return this;
 	}
-	public boolean addCategoryAlertDisplayed()
-	{
+
+	public boolean addCategoryAlertDisplayed() {
 		return addcategoryalert.isDisplayed();
-}
-	public boolean serachListCategory()
-	{
+	}
+
+	public boolean serachListCategory() {
 		return searchlist.isDisplayed();
 	}
 

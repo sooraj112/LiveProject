@@ -19,22 +19,26 @@ public class LoginPage {
 	private WebElement passwordfield;
 	@FindBy(xpath = "//button[text()='Sign In']")
 	private WebElement loginbutton;
-	@FindBy(xpath = "//p[text()='Dashboard']")private
-	WebElement dashboardtile;
-	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")private
-	WebElement invaidcredentialalertmessage;
+	@FindBy(xpath = "//p[text()='Dashboard']")
+	private WebElement dashboardtile;
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	private WebElement invaidcredentialalertmessage;
 
-	public void enterUsernameOnUsernameField(String username) {
+	public LoginPage enterUsernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
+		return this;
 	}
 
-	public void enterPasswordField(String password) {
+	public LoginPage enterPasswordField(String password) {
 		passwordfield.sendKeys(password);
+		return this;
 	}
 
-	public void clickOnLoginButton() {
+	public HomePage clickOnLoginButton() {
 		loginbutton.click();
+		return new HomePage(driver);
 	}
+
 	public boolean dashboardtiledisplayed() {
 		return dashboardtile.isDisplayed();
 	}
@@ -46,6 +50,5 @@ public class LoginPage {
 	public boolean alertDisplayed() {
 		return invaidcredentialalertmessage.isDisplayed();
 	}
-
 
 }

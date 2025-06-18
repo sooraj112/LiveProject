@@ -19,17 +19,40 @@ public class HomePage {
 	private WebElement logoutlink;
 	@FindBy(xpath = "//b[text()='7rmart supermarket']")
 	private WebElement title;
+	@FindBy(xpath = "//i[@class='fas fa-arrow-circle-right']")
+	private WebElement adminuserlink;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")
+	private WebElement managenewslink;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")
+	private WebElement managecategorylink;
 
-	public void clickOnAdminLink() {
+	public HomePage clickOnAdminLink() {
 		adminlink.click();
+		return this;
 	}
 
-	public void clickOnLogoutlink() {
+	public LoginPage clickOnLogoutlink() {
 		logoutlink.click();
+		return new LoginPage(driver);
 	}
-	
+
 	public boolean titleDisplayed() {
 		return title.isDisplayed();
+	}
+
+	public AdminUserPage clickOnadminuserlink() {
+		adminuserlink.click();
+		return new AdminUserPage(driver);
+	}
+
+	public ManageNewsPage clickOnmanagenewslink() {
+		managenewslink.click();
+		return new ManageNewsPage(driver);
+	}
+
+	public ManageCategoryPage clickOnManageCategoryLink() {
+		managecategorylink.click();
+		return new ManageCategoryPage(driver);
 	}
 
 }

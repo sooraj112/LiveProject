@@ -16,8 +16,6 @@ public class AdminUserPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//i[@class='fas fa-arrow-circle-right']")
-	private WebElement adminuserlink;
 	@FindBy(xpath = "//a[@href='javascript:void(0)']")
 	private WebElement adminusernew;
 	@FindBy(xpath = "//input[@id='username']")
@@ -38,58 +36,63 @@ public class AdminUserPage {
 	private WebElement selectsearchusertype;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement searchbutton;
-	
+
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement adminuseralert;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//following::td[text()='Orange']")
 	private WebElement userserach;
 
-	public void clickOnadminuserlink() {
-		adminuserlink.click();
-	}
-
-	public void clickOnadminusernew() {
+	public AdminUserPage clickOnadminusernew() {
 		adminusernew.click();
+		return this;
 	}
 
-	public void enterNewUsernameOnUsernameField(String user) {
+	public AdminUserPage enterNewUsernameOnUsernameField(String user) {
 		newusername.sendKeys(user);
+		return this;
 	}
 
-	public void enterNewPasswordOnPasswordField(String pass) {
+	public AdminUserPage enterNewPasswordOnPasswordField(String pass) {
 		newpassword.sendKeys(pass);
+		return this;
 	}
 
-	public void clickOnSelectUserType() {
+	public AdminUserPage clickOnSelectUserType() {
 		selectusertype.click();
 		Select select = new Select(selectusertype);
 		select.selectByValue("staff");
+		return this;
 	}
 
-	public void clickOnSaveButtonOfNew() {
+	public AdminUserPage clickOnSaveButtonOfNew() {
 		savebutton.click();
+		return this;
 	}
 
-	public void clickOnadminusersearch() {
+	public AdminUserPage clickOnadminusersearch() {
 		WaitUtility wait = new WaitUtility();
 		wait.waitUntilElementToBeClickable(driver, adminusersearch);
 		adminusersearch.click();
+		return this;
 	}
 
-	public void enterSearchUsernameOnUsernameField(String seruser) {
+	public AdminUserPage enterSearchUsernameOnUsernameField(String seruser) {
 		searchusername.sendKeys(seruser);
+		return this;
 	}
 
-	public void clickOnSearchSelectUserType() {
+	public AdminUserPage clickOnSearchSelectUserType() {
 		selectsearchusertype.click();
 		Select select = new Select(selectsearchusertype);
 		select.selectByValue("staff");
+		return this;
 	}
 
-	public void clickOnSearchButton() {
+	public AdminUserPage clickOnSearchButton() {
 		searchbutton.click();
+		return this;
 	}
-	
+
 	public boolean adminuserAlertDisplayed() {
 		return adminuseralert.isDisplayed();
 	}

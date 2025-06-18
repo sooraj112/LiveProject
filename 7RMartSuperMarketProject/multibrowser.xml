@@ -3,16 +3,16 @@
 <suite name="MultiBrowser" parallel="tests">
 
 
-  <test thread-count="5" name="Test1">
-  <parameter name="browser" value="Chrome"></parameter>
-    <classes>
-      <class name="testscript.LoginTest"></class>
-    </classes>
-  </test> <!-- Test -->
-  <test thread-count="5" name="Test2">
-  <parameter name="browser" value="Edge"></parameter>
-    <classes>
-      <class name="testscript.HomeTest"></class>
-    </classes>
-  </test>
+	<test thread-count="5" name="Test1">
+		<parameter name="browser" value="Chrome"></parameter>
+		<classes>
+			<class name="testscript.LoginTest"></class>
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test2">
+		<parameter name="browser" value="Edge"></parameter>
+		<classes>
+			<class name="testscript.HomeTest"></class>
+		</classes>
+	</test>
 </suite> <!-- Suite -->

@@ -12,29 +12,35 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtility {
-	public static int EXPLICITWAIT=10;
-	public static int IMPLICITWAIT=10;
-	public void waitUntilElementToBeClickable(WebDriver driver,WebElement element) {
+	public static int EXPLICITWAIT = 10;
+	public static int IMPLICITWAIT = 10;
+
+	public void waitUntilElementToBeClickable(WebDriver driver, WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-	public void waitUntilAlertToBePresent(WebDriver driver){
+
+	public void waitUntilAlertToBePresent(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
-	public void waitUntilTitleContainSpecificText(WebDriver driver){
+
+	public void waitUntilTitleContainSpecificText(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 		wait.until(ExpectedConditions.titleContains("Admin User"));
 	}
-	public void waitUntilElementIsVisible(WebDriver driver){
+
+	public void waitUntilElementIsVisible(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alert alert-success alert-dismissible']")));
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//div[@class='alert alert-success alert-dismissible']")));
 	}
-	public void waitUntilNumberOfElementisMoreThanACount(WebDriver driver){
+
+	public void waitUntilNumberOfElementisMoreThanACount(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//input[@id='w_price']"), 50));
 	}
-	
+
 	public void fluentWaitElements(WebDriver driver, WebElement element, String attribute, String attributeValue,
 			int total) {
 		Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(total))

@@ -13,8 +13,6 @@ public class ManageNewsPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")
-	private WebElement managenewslink;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	private WebElement managenewsnew;
 	@FindBy(xpath = "//textarea[@name='news'and @id='news']")
@@ -27,44 +25,46 @@ public class ManageNewsPage {
 	private WebElement serachnews;
 	@FindBy(xpath = "//button[@class='btn btn-danger btn-fix']")
 	private WebElement searchbutton;
-	
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement addnewsalert;
-	@FindBy(xpath="//h4[text()='Search Manage News']")private WebElement searchnews;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement addnewsalert;
+	@FindBy(xpath = "//h4[text()='Search Manage News']")
+	private WebElement searchnews;
 
-	public void clickOnmanagenewslink() {
-		managenewslink.click();
-	}
-
-	public void clickOnmanagenewsnew() {
+	public ManageNewsPage clickOnmanagenewsnew() {
 		managenewsnew.click();
+		return this;
 	}
 
-	public void enterNewNewsOnNewsField(String newsn) {
+	public ManageNewsPage enterNewNewsOnNewsField(String newsn) {
 		newnews.sendKeys(newsn);
+		return this;
 	}
 
-	public void clickOnSaveButtonOfNewNews() {
+	public ManageNewsPage clickOnSaveButtonOfNewNews() {
 		savebutton.click();
+		return this;
 	}
 
-	public void clickOnManagenewsSearch() {
+	public ManageNewsPage clickOnManagenewsSearch() {
 		managenewssearch.click();
+		return this;
 	}
 
-	public void enterNewsTitleOnSearchField(String sernews) {
+	public ManageNewsPage enterNewsTitleOnSearchField(String sernews) {
 		serachnews.sendKeys(sernews);
+		return this;
 	}
 
-	public void clickOnSearchButtonOfNewNews() {
+	public ManageNewsPage clickOnSearchButtonOfNewNews() {
 		searchbutton.click();
+		return this;
 	}
-	
-	public boolean addNewsAlertDisplayed()
-	{
+
+	public boolean addNewsAlertDisplayed() {
 		return addnewsalert.isDisplayed();
-}
-	public boolean serachManageNews()
-	{
+	}
+
+	public boolean serachManageNews() {
 		return searchnews.isDisplayed();
 	}
 
