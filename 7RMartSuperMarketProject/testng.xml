@@ -8,11 +8,15 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="testscript.LoginTest">
-				<methods>
-					<include name="verifyUserLoginWithValidCredentials"></include>
-				</methods>
 			</class>
-			
-		</classes>
+			<class name="testscript.HomeTest">
+			</class>
+			<class name="testscript.AdminUserTest">
+			</class>
+			<class name="testscript.ManageNewsTest">
+			</class>
+			<class name="testscript.ManageCategoryTest">
+			</class>
+			</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
