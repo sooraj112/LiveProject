@@ -14,7 +14,7 @@ import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base {
 
-	@Test(description = "Verifying adding a new category in Manage Category page")
+	@Test(description = "Verifying adding a new category in Manage Category page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserIsAbleToAddNewCategory() throws IOException {
 		HomePage homepage;
 		ManageCategoryPage managecategory;

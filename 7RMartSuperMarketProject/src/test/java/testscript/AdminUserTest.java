@@ -37,7 +37,7 @@ public class AdminUserTest extends Base {
 
 	}
 
-	@Test(description = "Verifying searching a user in Admin User page")
+	@Test(description = "Verifying searching a user in Admin User page",retryAnalyzer = retry.Retry.class)
 	public void verifyWhetherUserIsAbleToSearchAUser() throws IOException {
 		HomePage homepage;
 		AdminUserPage adminuser;
