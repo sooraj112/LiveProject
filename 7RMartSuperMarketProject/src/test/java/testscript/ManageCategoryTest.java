@@ -25,9 +25,8 @@ public class ManageCategoryTest extends Base {
 		homepage = loginpage.clickOnLoginButton();
 		managecategory = homepage.clickOnManageCategoryLink();
 		managecategory.clickOnManageCategoryNew();
-		// String categoryname = ExcelUtility.getStringData(0, 0, "ManageCategoryPage");
-		managecategory.enterNewCategoryOnTitleField().uploadImageManageCategory().pageScrollDown()
-				.clickOnSaveButtonOfManageCategory();
+		String categoryname = ExcelUtility.getStringData(0, 0, "ManageCategoryPage");
+		managecategory.enterNewCategoryOnTitleField().uploadImageManageCategory().clickOnSaveButtonOfManageCategory();
 		boolean isaddcategoryalertdisplayed = managecategory.addCategoryAlertDisplayed();
 		Assert.assertTrue(isaddcategoryalertdisplayed, Messages.ADDNEWCATEGORYERROR);
 	}

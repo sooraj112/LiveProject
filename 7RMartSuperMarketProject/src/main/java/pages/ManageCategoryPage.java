@@ -1,12 +1,12 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constants.Constant;
+import utilities.PageUtility;
 
 public class ManageCategoryPage {
 
@@ -45,15 +45,9 @@ public class ManageCategoryPage {
 		return this;
 	}
 
-	public ManageCategoryPage pageScrollDown() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,350)", "");
-		return this;
-	}
-
 	public ManageCategoryPage clickOnSaveButtonOfManageCategory() {
-
-		categorysavebutton.click();
+		PageUtility scrolltoview = new PageUtility();
+		scrolltoview.elementscrollintoview(driver, categorysavebutton);
 		return this;
 	}
 

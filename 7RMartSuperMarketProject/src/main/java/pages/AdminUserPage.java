@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
 import utilities.WaitUtility;
 
 public class AdminUserPage {
@@ -58,9 +59,8 @@ public class AdminUserPage {
 	}
 
 	public AdminUserPage clickOnSelectUserType() {
-		selectusertype.click();
-		Select select = new Select(selectusertype);
-		select.selectByValue("staff");
+		PageUtility selection = new PageUtility();
+		selection.selectDropdownWithIndex(selectusertype, 2);
 		return this;
 	}
 
@@ -83,8 +83,8 @@ public class AdminUserPage {
 
 	public AdminUserPage clickOnSearchSelectUserType() {
 		selectsearchusertype.click();
-		Select select = new Select(selectsearchusertype);
-		select.selectByValue("staff");
+		PageUtility selection = new PageUtility();
+		selection.selectDropdownWithIndex(selectsearchusertype, 1);
 		return this;
 	}
 
